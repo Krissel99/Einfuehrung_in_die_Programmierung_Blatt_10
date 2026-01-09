@@ -35,17 +35,17 @@ public class Grid {
     }
 
     public void computeNextGen() {
-        int rows = getGridArray().length;
-        int cols = getGridArray()[0].length;
+        int rows = gridArray.length;
+        int cols = gridArray[0].length;
         for (int cellRow = 0; cellRow < rows; cellRow++) {
             for (int cellCol = 0; cellCol < cols; cellCol++) {
-                getGridArray()[cellRow][cellCol].countLivingNeighbors(gridArray);
+                gridArray[cellRow][cellCol].countLivingNeighbors(gridArray);
 
             }
         }
         for (int cellRow = 0; cellRow < rows; cellRow++) {
             for (int cellCol = 0; cellCol < cols; cellCol++) {
-                getGridArray()[cellRow][cellCol].setAlive(gridArray[cellRow][cellCol].getIsAliveNextGen());
+                gridArray[cellRow][cellCol].setAlive(gridArray[cellRow][cellCol].isAliveNextGen());
             }
         }
     }
@@ -57,18 +57,5 @@ public class Grid {
         for (int i = 0; i < n; i++) {
             computeNextGen();
         }
-    }
-
-    public String toDisplayString() {
-        StringBuilder sb   = new StringBuilder();
-        int           rows = getGridArray().length;
-        int           cols = getGridArray()[0].length;
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                sb.append(gridArray[r][c].isAlive() ? "1 " : "0 ");
-            }
-            sb.append('\n');
-        }
-        return sb.toString();
     }
 }

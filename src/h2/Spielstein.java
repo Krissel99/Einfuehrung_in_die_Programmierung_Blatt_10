@@ -72,9 +72,4 @@ public class Spielstein {
         }
     }
 
-
-    @Override
-    public String toString() {
-        return "Indizes ("+currentRow+","+currentCol+")";
-    }
 }

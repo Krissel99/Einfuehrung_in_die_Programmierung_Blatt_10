@@ -26,8 +26,4 @@ public class Feld {
         this.direction = direction;
     }
 
-    @Override
-    public String toString() {
-        return "Feld{boese="+boese+", direction="+direction+"}";
-    }
 }

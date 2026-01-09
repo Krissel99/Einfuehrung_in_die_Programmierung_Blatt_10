@@ -51,11 +51,11 @@ public class Cell {
         this.numLivingNeighbors = numLivingNeighbors;
     }
 
-    public boolean getIsAliveNextGen() {
+    public boolean isAliveNextGen() {
         return isAliveNextGen;
     }
 
-    public void setIsAliveNextGen(boolean isAliveNextGen) {
+    public void setAliveNextGen(boolean isAliveNextGen) {
         this.isAliveNextGen = isAliveNextGen;
     }
 
@@ -69,8 +69,8 @@ public class Cell {
                 if (i == 0 && j == 0) {
                     continue;
                 }
-                int     neighborRow = getIndexRow()+i;
-                int     neighborCol = getIndexCol()+j;
+                int     neighborRow = indexRow+i;
+                int     neighborCol = indexCol+j;
                 boolean rowInGrid   = neighborRow >= 0 && neighborRow < rows;
                 boolean colInGrid   = neighborCol >= 0 && neighborCol < cols;
                 if (rowInGrid && colInGrid) {
@@ -86,9 +86,9 @@ public class Cell {
 
     private void decideNextStatus() {
         if (isAlive()) {
-            setIsAliveNextGen(getNumLivingNeighbors() == 2 || getNumLivingNeighbors() == 3);
+            setAliveNextGen(getNumLivingNeighbors() == 2 || getNumLivingNeighbors() == 3);
         } else {
-            setIsAliveNextGen(getNumLivingNeighbors() == 3);
+            setAliveNextGen(getNumLivingNeighbors() == 3);
         }
     }
 
